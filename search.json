@@ -1,0 +1,560 @@
+[
+  {
+    "objectID": "outline.html",
+    "href": "outline.html",
+    "title": "课程大纲 Course Outline",
+    "section": "",
+    "text": "This is the outline for the course Computational Economics."
+  },
+  {
+    "objectID": "outline.html#course-wide-expectations",
+    "href": "outline.html#course-wide-expectations",
+    "title": "课程大纲 Course Outline",
+    "section": "0.1 Course-wide expectations",
+    "text": "0.1 Course-wide expectations\n\nLanguages & tools: Python, JAX, Git, Quarto\nCore numerical skills: root finding, interpolation, quadrature, dynamic programming, simulation, fixed points"
+  },
+  {
+    "objectID": "outline.html#readings-references",
+    "href": "outline.html#readings-references",
+    "title": "课程大纲 Course Outline",
+    "section": "1.1 Readings / references",
+    "text": "1.1 Readings / references\n\nPython Software Foundation (2026)\nHarris 等 (2020)\nVirtanen 等 (2020)\nMcKinney (2010)\nHunter (2007)"
+  },
+  {
+    "objectID": "outline.html#readings",
+    "href": "outline.html#readings",
+    "title": "课程大纲 Course Outline",
+    "section": "2.1 Readings",
+    "text": "2.1 Readings\n\nBrock 和 Mirman (1972)"
+  },
+  {
+    "objectID": "outline.html#readings-1",
+    "href": "outline.html#readings-1",
+    "title": "课程大纲 Course Outline",
+    "section": "3.1 Readings",
+    "text": "3.1 Readings\n\nKydland 和 Prescott (1982)\nG. D. Hansen (1985)\nKing, Plosser, 和 Rebelo (1988)\nPrescott (1986)"
+  },
+  {
+    "objectID": "outline.html#jax-readings",
+    "href": "outline.html#jax-readings",
+    "title": "课程大纲 Course Outline",
+    "section": "3.2 JAX Readings",
+    "text": "3.2 JAX Readings\n\nBradbury 等 (2018)"
+  },
+  {
+    "objectID": "outline.html#readings-2",
+    "href": "outline.html#readings-2",
+    "title": "课程大纲 Course Outline",
+    "section": "4.1 Readings",
+    "text": "4.1 Readings\n\nAiyagari (1994)\nHuggett (1993)\nBewley (1986)"
+  },
+  {
+    "objectID": "outline.html#readings-3",
+    "href": "outline.html#readings-3",
+    "title": "课程大纲 Course Outline",
+    "section": "5.1 Readings",
+    "text": "5.1 Readings\n\nKrusell 和 Smith (1998)"
+  },
+  {
+    "objectID": "outline.html#readings-4",
+    "href": "outline.html#readings-4",
+    "title": "课程大纲 Course Outline",
+    "section": "6.1 Readings",
+    "text": "6.1 Readings\n\nMaliar, Maliar, 和 Winant (2021)\nHan, Yang, 和 E (2021)\nMaliar 和 Maliar (2022)\nAchdou, Lasry, 和 Lions (2022)\nGu 等 (2024)\nYang 等 (2025)"
+  },
+  {
+    "objectID": "outline.html#readings-5",
+    "href": "outline.html#readings-5",
+    "title": "课程大纲 Course Outline",
+    "section": "7.1 Readings",
+    "text": "7.1 Readings\n\nAchdou 等 (2022)\nAhn 等 (2018)\nBrunnermeier 和 Sannikov (2014)\nHe 和 Krishnamurthy (2013)"
+  },
+  {
+    "objectID": "outline.html#readings-6",
+    "href": "outline.html#readings-6",
+    "title": "课程大纲 Course Outline",
+    "section": "8.1 Readings",
+    "text": "8.1 Readings\n\nKaplan, Moll, 和 Violante (2018)\nAuclert (2019)\nGuerrieri 和 Lorenzoni (2017)"
+  },
+  {
+    "objectID": "outline.html#readings-7",
+    "href": "outline.html#readings-7",
+    "title": "课程大纲 Course Outline",
+    "section": "9.1 Readings",
+    "text": "9.1 Readings\n\nAuclert 等 (2021)"
+  },
+  {
+    "objectID": "outline.html#readings-8",
+    "href": "outline.html#readings-8",
+    "title": "课程大纲 Course Outline",
+    "section": "10.1 Readings",
+    "text": "10.1 Readings\n\nConesa, Li, 和 Li (2023)"
+  },
+  {
+    "objectID": "outline.html#readings-9",
+    "href": "outline.html#readings-9",
+    "title": "课程大纲 Course Outline",
+    "section": "11.1 Readings",
+    "text": "11.1 Readings\n\nL. P. Hansen (1982)\nMcFadden (1989)\nPakes 和 Pollard (1989)\nGouriéroux, Monfort, 和 Renault (1993)\nRust (1987)\nBajari, Benkard, 和 Levin (2007)"
+  },
+  {
+    "objectID": "outline.html#readings-10",
+    "href": "outline.html#readings-10",
+    "title": "课程大纲 Course Outline",
+    "section": "12.1 Readings",
+    "text": "12.1 Readings\n\nRocklin (2015)\nOpenMP Architecture Review Board (2021)\nMessage Passing Interface Forum (2025)"
+  },
+  {
+    "objectID": "lectures/09-ssj.html",
+    "href": "lectures/09-ssj.html",
+    "title": "Sequence-Space Jacobian – IKC",
+    "section": "",
+    "text": "本讲先从跨期凯恩斯交叉（IKC）出发，说明跨期边际消费倾向（iMPCs）矩阵 \\(\\mathbf{M}\\) 是异质性个体模型对财政政策宏观反应的充分统计量，并在 RA、TA、HA 等不同消费模型下 比较其形状与所隐含的财政乘数。随后区分状态空间表示与序列空间表示，介绍序列空间 雅可比方法（SSJ）：围绕稳态对模型线性化、用雅可比矩阵求解脉冲响应、估计与判定局部 确定性。最后以 Krusell–Smith 模型为例，讲解如何用”假新闻算法”（Fake News Algorithm） 快速构造异质性个体模块的雅可比矩阵。",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Sequence-Space Jacobian – IKC"
+    ]
+  },
+  {
+    "objectID": "lectures/09-ssj.html#材料",
+    "href": "lectures/09-ssj.html#材料",
+    "title": "Sequence-Space Jacobian – IKC",
+    "section": "材料",
+    "text": "材料\n\n幻灯片：Slides 05-19（PDF）",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Sequence-Space Jacobian – IKC"
+    ]
+  },
+  {
+    "objectID": "lectures/09-ssj.html#阅读",
+    "href": "lectures/09-ssj.html#阅读",
+    "title": "Sequence-Space Jacobian – IKC",
+    "section": "阅读",
+    "text": "阅读\n\nAuclert, Bardóczy, Rognlie & Straub (2021), “Using the Sequence-Space Jacobian to Solve and Estimate Heterogeneous-Agent Models,” Econometrica 89(5), 2379–2419.\nAuclert, Rognlie & Straub, “The Intertemporal Keynesian Cross.”\n代码库：https://github.com/shade-econ/sequence-jacobian",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Sequence-Space Jacobian – IKC"
+    ]
+  },
+  {
+    "objectID": "lectures/07-structural-estimation.html",
+    "href": "lectures/07-structural-estimation.html",
+    "title": "Structural Estimation",
+    "section": "",
+    "text": "以 Rust (1987) 的 Harold Zurcher 公交车发动机更换问题为主线，讲解动态离散选择模型的结构估计。 内容涵盖最优停时的随机动态规划与 Bellman 方程、值函数迭代的压缩映射性质，以及使得模型可估的三条 独立性假设（可加可分、条件独立、Type-I 极值分布），由此得到 Logit 型条件选择概率。在此基础上介绍 极大似然估计与嵌套不动点算法（NFXP）的内外两层循环，并对照 Hotz–Miller、Bajari–Benkard–Levin、 Su–Judd 等其他 DDC 估计方法。附完整 Python 实现与数据。",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Structural Estimation"
+    ]
+  },
+  {
+    "objectID": "lectures/07-structural-estimation.html#材料",
+    "href": "lectures/07-structural-estimation.html#材料",
+    "title": "Structural Estimation",
+    "section": "材料",
+    "text": "材料\n\n幻灯片：Structural Estimation（PDF）\n代码与数据：main.py · functions.py · group_4.csv",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Structural Estimation"
+    ]
+  },
+  {
+    "objectID": "lectures/07-structural-estimation.html#阅读",
+    "href": "lectures/07-structural-estimation.html#阅读",
+    "title": "Structural Estimation",
+    "section": "阅读",
+    "text": "阅读\n本讲幻灯片以 Rust 方法为主线：\n\nRust (1987), “Optimal Replacement of GMC Bus Engines: An Empirical Model of Harold Zurcher,” Econometrica 55(5), 999–1033.\nBajari, Benkard & Levin (2007), “Estimating Dynamic Models of Imperfect Competition,” Econometrica 75(5), 1331–1370.\n\n结构估计方法的延伸背景阅读（课程层面，非本讲幻灯片直接覆盖）：\n\nHansen (1982), “Large Sample Properties of Generalized Method of Moments Estimators,” Econometrica 50(4), 1029–1054.\nMcFadden (1989); Pakes & Pollard (1989)：模拟矩估计，Econometrica 57(5).\nGourieroux, Monfort & Renault (1993), “Indirect Inference,” J. Applied Econometrics 8, S85–S118.",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Structural Estimation"
+    ]
+  },
+  {
+    "objectID": "lectures/05-krusell-smith.html",
+    "href": "lectures/05-krusell-smith.html",
+    "title": "The Krusell–Smith Method",
+    "section": "",
+    "text": "同时含个体风险与总量风险的不完全市场异质性个体模型：财富分布本身是内生且无穷维的状态变量。Krusell–Smith 方法用近似聚合处理这一难题——以一条总量资本的预测规律（按好坏状态分别做 log-K 对数回归）替代完整的分布转移， 并通过外层不动点迭代使预测规律自洽。讲义讨论算法、精度检验及其适用边界，并给出基于策略函数迭代的完整 JAX 实现。",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "The Krusell–Smith Method"
+    ]
+  },
+  {
+    "objectID": "lectures/05-krusell-smith.html#材料",
+    "href": "lectures/05-krusell-smith.html#材料",
+    "title": "The Krusell–Smith Method",
+    "section": "材料",
+    "text": "材料\n\n幻灯片：HTML · PDF\nNotebook：KSMethod.ipynb",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "The Krusell–Smith Method"
+    ]
+  },
+  {
+    "objectID": "lectures/05-krusell-smith.html#阅读",
+    "href": "lectures/05-krusell-smith.html#阅读",
+    "title": "The Krusell–Smith Method",
+    "section": "阅读",
+    "text": "阅读\n\nKrusell & Smith (1998), “Income and Wealth Heterogeneity in the Macroeconomy,” JPE 106(5), 867–896.",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "The Krusell–Smith Method"
+    ]
+  },
+  {
+    "objectID": "lectures/03-rbc-jax.html",
+    "href": "lectures/03-rbc-jax.html",
+    "title": "RBC and JAX",
+    "section": "",
+    "text": "从 Hansen (1985) 的不可分劳动 RBC 模型出发，讲解可分劳动版本模型的设定、稳态校准与求解： 用值函数迭代求解 Bellman 方程，并借助劳动的期内一阶条件（用二分法）求解最优劳动供给。 随后以 JAX 实现整套求解器：jax.jit 即时编译、jax.vmap 向量化、jax.lax.while_loop 与 jax.lax.scan 结构化控制流，以及无状态随机数生成，最后对模型进行模拟。",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "RBC and JAX"
+    ]
+  },
+  {
+    "objectID": "lectures/03-rbc-jax.html#材料",
+    "href": "lectures/03-rbc-jax.html#材料",
+    "title": "RBC and JAX",
+    "section": "材料",
+    "text": "材料\n\n幻灯片：HTML · PDF\nNotebook：lecture3.ipynb",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "RBC and JAX"
+    ]
+  },
+  {
+    "objectID": "lectures/03-rbc-jax.html#阅读",
+    "href": "lectures/03-rbc-jax.html#阅读",
+    "title": "RBC and JAX",
+    "section": "阅读",
+    "text": "阅读\n\nKydland & Prescott (1982), “Time to Build and Aggregate Fluctuations,” Econometrica 50(6), 1345–1370.\nHansen (1985), “Indivisible Labor and the Business Cycle,” JME 16(3), 309–327.\nKing, Plosser & Rebelo (1988), “Production, Growth and Business Cycles: I. The Basic Neoclassical Model,” JME 21(2–3), 195–232.\nPrescott (1986), “Theory Ahead of Business Cycle Measurement,” Federal Reserve Bank of Minneapolis Quarterly Review.\nBradbury et al. (2018), JAX: composable transformations of Python+NumPy programs. https://github.com/jax-ml/jax",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "RBC and JAX"
+    ]
+  },
+  {
+    "objectID": "lectures/01-python.html",
+    "href": "lectures/01-python.html",
+    "title": "Introduction to Python",
+    "section": "",
+    "text": "课程的工具起点：用 uv 管理 Python 环境与依赖，回顾 Python 基础语法（容器、函数、列表 推导式），并介绍科学计算生态——NumPy 的数组、索引与广播，以及 Matplotlib 绘图。配套两份 补充讲义：用 Guess-and-Verify 解 Brock–Mirman 增长模型的动态规划问题，以及向量化编程及其局限。",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Introduction to Python"
+    ]
+  },
+  {
+    "objectID": "lectures/01-python.html#材料",
+    "href": "lectures/01-python.html#材料",
+    "title": "Introduction to Python",
+    "section": "材料",
+    "text": "材料\n\n幻灯片：HTML · PDF\nNotebook：Lecture1_Python.ipynb · 对应 PDF\n补充讲义：Guess and Verify HTML · PDF；Vectorization HTML · PDF",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Introduction to Python"
+    ]
+  },
+  {
+    "objectID": "lectures/01-python.html#阅读",
+    "href": "lectures/01-python.html#阅读",
+    "title": "Introduction to Python",
+    "section": "阅读",
+    "text": "阅读\n\nPython Software Foundation, Official Python 3 documentation, https://docs.python.org/3/.\nHarris et al. (2020), “Array programming with NumPy,” Nature 585, 357–362.\nVirtanen et al. (2020), “SciPy 1.0,” Nature Methods 17, 261–272.\nMcKinney (2010), “Data Structures for Statistical Computing in Python,” SciPy 2010.\nHunter (2007), “Matplotlib: A 2D Graphics Environment,” CiSE 9(3), 90–95.",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Introduction to Python"
+    ]
+  },
+  {
+    "objectID": "homework.html",
+    "href": "homework.html",
+    "title": "作业",
+    "section": "",
+    "text": "作业提交与截止时间见 Notion 课程页。此处仅存档题目。\n\n\n\n布置日期\n题目\n内容提要\n\n\n\n\n03-17\nHomework 1（PDF）\nBM 模型的序列形式改写与等价性证明；不可逆投资的随机增长模型（notebook 提交）\n\n\n03-25\nHomework 2（PDF）\n见题目\n\n\n04-07\nHomework 3（PDF）\n见题目"
+  },
+  {
+    "objectID": "extras/hank.html",
+    "href": "extras/hank.html",
+    "title": "HANK",
+    "section": "",
+    "text": "本讲以 Kaplan-Moll-Violante (2018) 为主线讲解异质性个体新凯恩斯模型（HANK），其三大支柱为不可保险的特质收入风险、名义价格粘性与流动性不同的两类资产。与 RANK 中货币政策几乎全靠直接利率渠道（跨期替代）不同，校准到微观数据的 HANK 中直接效应不足三分之一，主要传导来自收入变化的间接效应，整体效果还关键地取决于财政响应。模型设定部分涵盖双资产家庭、生产与连续时间新凯恩斯菲利普斯曲线；求解部分介绍连续时间异质性个体方法，即 HJB 方程与 Kolmogorov Forward 方程、有限差分（迎风格式）以及二者算子互为伴随的计算技巧。本讲为备课材料，未排入本学期课程表，与第 09 讲 SSJ 方法相承接。",
+    "crumbs": [
+      "讲义",
+      "补充专题",
+      "HANK"
+    ]
+  },
+  {
+    "objectID": "extras/hank.html#材料",
+    "href": "extras/hank.html#材料",
+    "title": "HANK",
+    "section": "材料",
+    "text": "材料\n\n幻灯片：HTML · PDF",
+    "crumbs": [
+      "讲义",
+      "补充专题",
+      "HANK"
+    ]
+  },
+  {
+    "objectID": "extras/hank.html#阅读",
+    "href": "extras/hank.html#阅读",
+    "title": "HANK",
+    "section": "阅读",
+    "text": "阅读\n\nKaplan, Moll & Violante (2018), “Monetary Policy According to HANK,” AER 108(3), 697–743.\nAuclert (2019), “Monetary Policy and the Redistribution Channel,” AER 109(6), 2333–2367.\nGuerrieri & Lorenzoni (2017), “Credit Crises, Precautionary Savings, and the Liquidity Trap,” QJE 132(3), 1427–1467.",
+    "crumbs": [
+      "讲义",
+      "补充专题",
+      "HANK"
+    ]
+  },
+  {
+    "objectID": "extras/hpc.html",
+    "href": "extras/hpc.html",
+    "title": "High Performance Computing",
+    "section": "",
+    "text": "高性能计算专题：先介绍并行计算的基础概念（冯·诺依曼架构、加速比与 Amdahl 定律、 强/弱可扩展性），再说明定量宏观为何需要并行（全局解法、贝叶斯估计、SMM 与数据抓取）。 随后用 Python 的 concurrent.futures 讲解面向 I/O 密集任务的多线程（GIL、ThreadPoolExecutor） 与面向 CPU 密集任务的多进程，最后介绍用 Numba（@njit、prange）对数值代码做 JIT 加速。 本讲为备课材料，未排入本学期课程表。",
+    "crumbs": [
+      "讲义",
+      "补充专题",
+      "High Performance Computing"
+    ]
+  },
+  {
+    "objectID": "extras/hpc.html#材料",
+    "href": "extras/hpc.html#材料",
+    "title": "High Performance Computing",
+    "section": "材料",
+    "text": "材料\n\n幻灯片：HTML · PDF",
+    "crumbs": [
+      "讲义",
+      "补充专题",
+      "High Performance Computing"
+    ]
+  },
+  {
+    "objectID": "extras/hpc.html#阅读",
+    "href": "extras/hpc.html#阅读",
+    "title": "High Performance Computing",
+    "section": "阅读",
+    "text": "阅读\n\nOpenMP Architecture Review Board (2021), OpenMP Application Programming Interface, Version 5.2.\nMessage Passing Interface Forum (2025), MPI: A Message-Passing Interface Standard, Version 5.0.",
+    "crumbs": [
+      "讲义",
+      "补充专题",
+      "High Performance Computing"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "计算经济学",
+    "section": "",
+    "text": "以量化方法回答宏观经济学问题。\n本站整合本学期全部讲义与配套材料：每讲提供幻灯片（HTML 可直接在浏览器中翻页，PDF 可下载）、 可运行的 Jupyter notebook 与补充讲义。语言与工具：Python、JAX、Git、Quarto。"
+  },
+  {
+    "objectID": "index.html#课程安排",
+    "href": "index.html#课程安排",
+    "title": "计算经济学",
+    "section": "课程安排",
+    "text": "课程安排\n\n\n\n日期\n主题\n讲义\n\n\n\n\n03-03\n课程绪论\n课程大纲\n\n\n03-03\nPython 简介\n01 Introduction to Python\n\n\n03-10 / 03-17\nBrock–Mirman 增长模型\n02 Brock–Mirman Growth Model\n\n\n03-24 / 03-31\nRBC 模型与 JAX\n03 RBC and JAX\n\n\n04-07\nAiyagari 模型\n04 The Aiyagari Model\n\n\n04-14\nKrusell–Smith 方法\n05 The Krusell–Smith Method\n\n\n04-21\n宏观公共财政\n06 Macro Public Finance\n\n\n04-28\n结构估计方法\n07 Structural Estimation\n\n\n05-05\n（校庆放假）\n—\n\n\n05-12\n连续时间异质性模型\n08 Continuous-Time Heterogeneous Agent Models\n\n\n05-19\nSequence-Space Jacobian 与 IKC\n09 Sequence-Space Jacobian – IKC\n\n\n05-26 / 06-02\nAI 求解方法\n10 Deep Learning Methods\n\n\n06-09\nEconGym\n材料待补\n\n\n\n另有两讲备课材料未排入课程表，见侧边栏「补充专题」： HANK 与 High Performance Computing。"
+  },
+  {
+    "objectID": "lectures/02-brock-mirman.html",
+    "href": "lectures/02-brock-mirman.html",
+    "title": "Brock–Mirman Growth Model",
+    "section": "",
+    "text": "以 Brock–Mirman (1972) 最优增长模型为例，系统讲解用值函数迭代求解动态规划：状态网格的构造、 收益函数与索引打包、Bellman 算子的收缩性与各类收敛范数，并将数值解与对数效用下的解析解对比。 依次处理确定性、iid 冲击与 Markov 冲击三种情形，后者用 Tauchen 方法将 AR(1) 生产率离散为 马尔可夫链，最后模拟模型动态。另附两期模型补充讲义，从欧拉方程角度作为热身。",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Brock–Mirman Growth Model"
+    ]
+  },
+  {
+    "objectID": "lectures/02-brock-mirman.html#材料",
+    "href": "lectures/02-brock-mirman.html#材料",
+    "title": "Brock–Mirman Growth Model",
+    "section": "材料",
+    "text": "材料\n\n幻灯片：HTML · PDF\nNotebook：Lecture2.ipynb\n补充讲义：A Two-Period Model HTML · PDF",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Brock–Mirman Growth Model"
+    ]
+  },
+  {
+    "objectID": "lectures/02-brock-mirman.html#阅读",
+    "href": "lectures/02-brock-mirman.html#阅读",
+    "title": "Brock–Mirman Growth Model",
+    "section": "阅读",
+    "text": "阅读\n\nBrock & Mirman (1972), “Optimal Economic Growth and Uncertainty: The Discounted Case,” JET 4(3), 479–513.",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Brock–Mirman Growth Model"
+    ]
+  },
+  {
+    "objectID": "lectures/04-aiyagari.html",
+    "href": "lectures/04-aiyagari.html",
+    "title": "The Aiyagari Model",
+    "section": "",
+    "text": "不完全市场与异质性个体的基准模型：个体面对不可保的特质性收入风险，求解标准储蓄问题，并将资产-收入分布表示为马尔可夫链以得到平稳分布；在 Aiyagari (1994) 的生产经济中，要素价格由企业的边际条件内生决定，一般均衡资本与利率由市场出清的不动点给出。课程用 JAX 实现求解，涵盖 Howard 策略迭代、内生网格法（EGM）以及用幂迭代计算平稳分布，并附 EGM 的补充笔记。",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "The Aiyagari Model"
+    ]
+  },
+  {
+    "objectID": "lectures/04-aiyagari.html#材料",
+    "href": "lectures/04-aiyagari.html#材料",
+    "title": "The Aiyagari Model",
+    "section": "材料",
+    "text": "材料\n\n幻灯片：HTML · PDF\nNotebook：aiyagari_jax.ipynb\n补充笔记：EGM using JAX（PDF）",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "The Aiyagari Model"
+    ]
+  },
+  {
+    "objectID": "lectures/04-aiyagari.html#阅读",
+    "href": "lectures/04-aiyagari.html#阅读",
+    "title": "The Aiyagari Model",
+    "section": "阅读",
+    "text": "阅读\n\nAiyagari (1994), “Uninsured Idiosyncratic Risk and Aggregate Saving,” QJE 109(3), 659–684.\nHuggett (1993), “The Risk-Free Rate in Heterogeneous-Agent Incomplete-Insurance Economies,” JEDC 17(5–6), 953–969.\nBewley (1986), “Stationary Monetary Equilibrium with a Continuum of Independently Fluctuating Consumers.”",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "The Aiyagari Model"
+    ]
+  },
+  {
+    "objectID": "lectures/06-public-finance.html",
+    "href": "lectures/06-public-finance.html",
+    "title": "Macro Public Finance",
+    "section": "",
+    "text": "宏观公共财政专题：以最优房产税研究为例，讲解含异质性家户、不完全市场和内生房价租金的世代交叠（OLG）模型的稳态与转移路径求解方法。课程结合贴近现实的财政收支体系，通过数值实验考察不同税率、减免方案及税收替代方案下房产税改革的宏观经济、福利与分配效应。",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Macro Public Finance"
+    ]
+  },
+  {
+    "objectID": "lectures/06-public-finance.html#材料",
+    "href": "lectures/06-public-finance.html#材料",
+    "title": "Macro Public Finance",
+    "section": "材料",
+    "text": "材料\n\n讲义：Property Tax in an OLG Model（PDF）",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Macro Public Finance"
+    ]
+  },
+  {
+    "objectID": "lectures/06-public-finance.html#阅读",
+    "href": "lectures/06-public-finance.html#阅读",
+    "title": "Macro Public Finance",
+    "section": "阅读",
+    "text": "阅读\n\nConesa, Li & Li (2023), “A Quantitative Evaluation of Universal Basic Income,” Journal of Public Economics 223, 104881.",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Macro Public Finance"
+    ]
+  },
+  {
+    "objectID": "lectures/08-hact.html",
+    "href": "lectures/08-hact.html",
+    "title": "Continuous-Time Heterogeneous Agent Models",
+    "section": "",
+    "text": "连续时间异质性个体模型（HACT/Huggett 型）：以连续时间马尔可夫链刻画收入过程， 推导值函数的 HJB 方程与分布的 Kolmogorov Forward（KF）方程，二者构成一个耦合 的偏微分方程系统。数值上用有限差分法（含 upwind 格式与状态约束的边界处理）离散， 比较显式迭代与隐式（含 Krylov 迭代）求解，再求解 KFE 得到平稳分布，并据此求出均衡 利率。全程用 Python/JAX 实现。",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Continuous-Time Heterogeneous Agent Models"
+    ]
+  },
+  {
+    "objectID": "lectures/08-hact.html#材料",
+    "href": "lectures/08-hact.html#材料",
+    "title": "Continuous-Time Heterogeneous Agent Models",
+    "section": "材料",
+    "text": "材料\n\n幻灯片：HTML · PDF",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Continuous-Time Heterogeneous Agent Models"
+    ]
+  },
+  {
+    "objectID": "lectures/08-hact.html#阅读",
+    "href": "lectures/08-hact.html#阅读",
+    "title": "Continuous-Time Heterogeneous Agent Models",
+    "section": "阅读",
+    "text": "阅读\n\nAchdou, Han, Lasry, Lions & Moll (2022), “Income and Wealth Distribution in Macroeconomics: A Continuous-Time Approach,” Review of Economic Studies 89(1), 45–86.\nHuggett (1993), “The Risk-Free Rate in Heterogeneous-Agent Incomplete-Insurance Economies,” Journal of Economic Dynamics and Control 17(5–6), 953–969.\nCandler (1999), “Finite-Difference Methods for Dynamic Programming Problems,” in Computational Methods for the Study of Dynamic Economies, Cambridge University Press.\nAhn, Kaplan, Moll, Winberry & Wolf (2018), “When Inequality Matters for Macro and Macro Matters for Inequality,” NBER Macroeconomics Annual 32(1), 1–75.",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Continuous-Time Heterogeneous Agent Models"
+    ]
+  },
+  {
+    "objectID": "lectures/10-deep-learning.html",
+    "href": "lectures/10-deep-learning.html",
+    "title": "Deep Learning Methods",
+    "section": "",
+    "text": "用深度学习求解动态经济模型。第一部分从机器学习基础（神经网络、损失函数、随机梯度 下降、自动微分）讲起，以一个含借贷约束的消费–储蓄模型为例，介绍三种把动态模型转化 为损失函数的方式（终身效用、欧拉方程残差、贝尔曼残差），用 Fischer–Burmeister 函数 处理偶尔约束，并以 all-in-one 期望算子把嵌套期望合并为单层蒙特卡洛，在 JAX 中端到端 实现欧拉残差法。第二部分把同一套工具（FB + AiO + Adam + 自动微分）落到带总量冲击的 Krusell–Smith 模型：用一个神经网络把整个截面分布直接作为状态输入、以 vmap 在 JAX/ Equinox 中全局求解，并检验决策规则、遍历分布与近似加总是否成立。",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Deep Learning Methods"
+    ]
+  },
+  {
+    "objectID": "lectures/10-deep-learning.html#材料",
+    "href": "lectures/10-deep-learning.html#材料",
+    "title": "Deep Learning Methods",
+    "section": "材料",
+    "text": "材料\n\n第一部分 Deep Learning Methods：HTML · PDF · Notebook\n第二部分 Deep Learning for Krusell–Smith：HTML · PDF · Notebook",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Deep Learning Methods"
+    ]
+  },
+  {
+    "objectID": "lectures/10-deep-learning.html#阅读",
+    "href": "lectures/10-deep-learning.html#阅读",
+    "title": "Deep Learning Methods",
+    "section": "阅读",
+    "text": "阅读\n\nMaliar, Maliar & Winant (2021), “Deep Learning for Solving Dynamic Economic Models,” JME 122, 76–101.（课件主参考）\nHan, Yang & E (2021), “DeepHAM: A Global Solution Method for Heterogeneous Agent Models with Aggregate Shocks.”\nMaliar & Maliar (2022), “Deep Learning Classification: Modeling Discrete Labor Choice,” JEDC 135.\nGu, Laurière, Merkel & Payne (2024), “Global Solutions to Master Equations for Continuous Time Heterogeneous Agent Macroeconomic Models.”\nAchdou, Han, Lasry, Lions & Moll (2022), “Income and Wealth Distribution in Macroeconomics: A Continuous-Time Approach,” RES 89(1), 45–86.",
+    "crumbs": [
+      "讲义",
+      "讲义（按授课顺序）",
+      "Deep Learning Methods"
+    ]
+  }
+]
