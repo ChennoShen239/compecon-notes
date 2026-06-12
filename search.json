@@ -1,5 +1,493 @@
 [
   {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Setup & How to Run",
+    "section": "",
+    "text": "The course code is written in Python 3.12 with JAX, and the environment is managed with uv. The steps below take you from a fresh machine to a running lecture notebook with the exact package versions used in class."
+  },
+  {
+    "objectID": "setup.html#install-uv",
+    "href": "setup.html#install-uv",
+    "title": "Setup & How to Run",
+    "section": "1. Install uv",
+    "text": "1. Install uv\n\nmacOS / LinuxHomebrewWindows (PowerShell)\n\n\ncurl -LsSf https://astral.sh/uv/install.sh | sh\n\n\nbrew install uv\n\n\npowershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\""
+  },
+  {
+    "objectID": "setup.html#get-the-pinned-environment",
+    "href": "setup.html#get-the-pinned-environment",
+    "title": "Setup & How to Run",
+    "section": "2. Get the pinned environment",
+    "text": "2. Get the pinned environment\nDownload the two environment files and put them in a new folder:\n\npyproject.toml — the dependency list\nuv.lock — the exact pinned versions used in lectures\n\nThen, in that folder:\nuv sync\nuv creates a virtual environment with Python 3.12 and installs the locked versions (JAX, Optax, Optimistix, QuantEcon, Numba, Matplotlib, Jupyter, …) reproducibly."
+  },
+  {
+    "objectID": "setup.html#run-a-notebook",
+    "href": "setup.html#run-a-notebook",
+    "title": "Setup & How to Run",
+    "section": "3. Run a notebook",
+    "text": "3. Run a notebook\nDownload any lecture’s notebook (the Notebook link on a lecture page), drop it in the folder, and launch Jupyter inside the synced environment:\nuv run jupyter lab\nOr open the folder in VS Code and select the .venv interpreter uv created."
+  },
+  {
+    "objectID": "setup.html#notes",
+    "href": "setup.html#notes",
+    "title": "Setup & How to Run",
+    "section": "Notes",
+    "text": "Notes\n\nJAX runs on CPU by default. For an NVIDIA GPU, install the CUDA build instead: uv add \"jax[cuda12]\". Apple Silicon users can stay on the default CPU build (it is fast enough for the course examples).\nMATLAB kernel (optional). The pinned environment includes matlab-kernel / jupyter-matlab-proxy; these are only needed if a demo uses MATLAB and require a local MATLAB install to actually run. The economics notebooks do not need them.\nJust the essentials. If you only want to run the JAX economics notebooks without the full lock, this is enough:\nuv venv --python 3.12 && uv pip install jax optax optimistix quantecon numba matplotlib seaborn statsmodels jupyter"
+  },
+  {
+    "objectID": "lectures/10-deep-learning.html",
+    "href": "lectures/10-deep-learning.html",
+    "title": "Deep Learning Methods",
+    "section": "",
+    "text": "Solving dynamic economic models with deep learning. Part 1 starts from the machine-learning toolkit (neural networks, loss functions, stochastic gradient descent, automatic differentiation) and, using a consumption–savings model with a borrowing constraint, introduces three ways to recast a dynamic model as a loss function (lifetime utility, Euler-equation residual, Bellman residual); the occasionally binding constraint is handled with the Fischer–Burmeister function, and the all-in-one expectation operator collapses the nested expectations into a single layer of Monte Carlo, yielding an end-to-end JAX implementation of the Euler-residual method. Part 2 carries the same toolkit (FB + AiO + Adam + autodiff) to a Krusell–Smith model with aggregate shocks: a single neural network takes the entire cross-sectional distribution directly as a state input and is solved globally in JAX/Equinox via vmap, with checks on the decision rule, the ergodic distribution, and whether approximate aggregation holds.",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Deep Learning Methods"
+    ]
+  },
+  {
+    "objectID": "lectures/10-deep-learning.html#materials",
+    "href": "lectures/10-deep-learning.html#materials",
+    "title": "Deep Learning Methods",
+    "section": "Materials",
+    "text": "Materials\n\nPart 1 — Deep Learning Methods: HTML · PDF · Notebook\nPart 2 — Deep Learning for Krusell–Smith: HTML · PDF · Notebook",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Deep Learning Methods"
+    ]
+  },
+  {
+    "objectID": "lectures/10-deep-learning.html#readings",
+    "href": "lectures/10-deep-learning.html#readings",
+    "title": "Deep Learning Methods",
+    "section": "Readings",
+    "text": "Readings\n\nMaliar, Maliar & Winant (2021), “Deep Learning for Solving Dynamic Economic Models,” JME 122, 76–101. (primary slide reference)\nHan, Yang & E (2021), “DeepHAM: A Global Solution Method for Heterogeneous Agent Models with Aggregate Shocks,” forthcoming in Quantitative Economics.\nMaliar & Maliar (2022), “Deep Learning Classification: Modeling Discrete Labor Choice,” JEDC 135.\nGu, Laurière, Merkel & Payne (2024), “Global Solutions to Master Equations for Continuous Time Heterogeneous Agent Macroeconomic Models.”\nAchdou, Han, Lasry, Lions & Moll (2022), “Income and Wealth Distribution in Macroeconomics: A Continuous-Time Approach,” RES 89(1), 45–86.",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Deep Learning Methods"
+    ]
+  },
+  {
+    "objectID": "lectures/08-hact.html",
+    "href": "lectures/08-hact.html",
+    "title": "Continuous-Time Heterogeneous Agent Models",
+    "section": "",
+    "text": "Continuous-time heterogeneous agent models (HACT / Huggett type): the income process is modeled as a continuous-time Markov chain, and we derive the HJB equation for the value function together with the Kolmogorov Forward (KF) equation for the distribution, which form a coupled system of partial differential equations. Numerically, we discretize via finite differences (using an upwind scheme and boundary handling for the state constraint), and compare explicit iteration with an implicit (sparse linear system) solver; we then solve the KFE for the stationary distribution and back out the equilibrium interest rate. Everything is implemented in Python/JAX.",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Continuous-Time Heterogeneous Agent Models"
+    ]
+  },
+  {
+    "objectID": "lectures/08-hact.html#materials",
+    "href": "lectures/08-hact.html#materials",
+    "title": "Continuous-Time Heterogeneous Agent Models",
+    "section": "Materials",
+    "text": "Materials\n\nSlides: HTML · PDF",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Continuous-Time Heterogeneous Agent Models"
+    ]
+  },
+  {
+    "objectID": "lectures/08-hact.html#readings",
+    "href": "lectures/08-hact.html#readings",
+    "title": "Continuous-Time Heterogeneous Agent Models",
+    "section": "Readings",
+    "text": "Readings\n\nAchdou, Han, Lasry, Lions & Moll (2022), “Income and Wealth Distribution in Macroeconomics: A Continuous-Time Approach,” Review of Economic Studies 89(1), 45–86.\nHuggett (1993), “The Risk-Free Rate in Heterogeneous-Agent Incomplete-Insurance Economies,” Journal of Economic Dynamics and Control 17(5–6), 953–969.\nCandler (1999), “Finite-Difference Methods for Dynamic Programming Problems,” in Computational Methods for the Study of Dynamic Economies, Cambridge University Press.\nAhn, Kaplan, Moll, Winberry & Wolf (2018), “When Inequality Matters for Macro and Macro Matters for Inequality,” NBER Macroeconomics Annual 32(1), 1–75.",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Continuous-Time Heterogeneous Agent Models"
+    ]
+  },
+  {
+    "objectID": "lectures/06-public-finance.html",
+    "href": "lectures/06-public-finance.html",
+    "title": "Macro Public Finance",
+    "section": "",
+    "text": "A topic in macro public finance, taught through a study of optimal property taxation. We develop methods for solving the steady state and transition path of an overlapping-generations (OLG) model with heterogeneous households, incomplete markets, and endogenous house prices and rents. Embedding a realistic fiscal system of taxes and transfers, the lecture uses numerical experiments to assess the macroeconomic, welfare, and distributional effects of property tax reform under alternative tax rates, exemption schemes, and revenue-substitution scenarios.",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Macro Public Finance"
+    ]
+  },
+  {
+    "objectID": "lectures/06-public-finance.html#materials",
+    "href": "lectures/06-public-finance.html#materials",
+    "title": "Macro Public Finance",
+    "section": "Materials",
+    "text": "Materials\n\nLecture deck: Property Tax in an OLG Model (PDF)",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Macro Public Finance"
+    ]
+  },
+  {
+    "objectID": "lectures/06-public-finance.html#readings",
+    "href": "lectures/06-public-finance.html#readings",
+    "title": "Macro Public Finance",
+    "section": "Readings",
+    "text": "Readings\n\nConesa, Li & Li (2023), “A Quantitative Evaluation of Universal Basic Income,” Journal of Public Economics 223, 104881.",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Macro Public Finance"
+    ]
+  },
+  {
+    "objectID": "lectures/04-aiyagari.html",
+    "href": "lectures/04-aiyagari.html",
+    "title": "The Aiyagari Model",
+    "section": "",
+    "text": "The benchmark model of incomplete markets with heterogeneous agents: households face uninsurable idiosyncratic income risk, solve a standard savings problem, and the asset-income distribution is represented as a Markov chain to obtain its stationary distribution. In the production economy of Aiyagari (1994), factor prices are determined endogenously by the firm’s marginal conditions, and the general-equilibrium capital stock and interest rate are pinned down by the market-clearing fixed point. The solution is implemented in JAX, covering Howard policy iteration, the endogenous grid method (EGM), and power iteration for the stationary distribution, with supplementary notes on EGM.",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "The Aiyagari Model"
+    ]
+  },
+  {
+    "objectID": "lectures/04-aiyagari.html#materials",
+    "href": "lectures/04-aiyagari.html#materials",
+    "title": "The Aiyagari Model",
+    "section": "Materials",
+    "text": "Materials\n\nSlides: HTML · PDF\nNotebook: aiyagari_jax.ipynb\nSupplementary notes: EGM using JAX (PDF)",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "The Aiyagari Model"
+    ]
+  },
+  {
+    "objectID": "lectures/04-aiyagari.html#readings",
+    "href": "lectures/04-aiyagari.html#readings",
+    "title": "The Aiyagari Model",
+    "section": "Readings",
+    "text": "Readings\n\nAiyagari (1994), “Uninsured Idiosyncratic Risk and Aggregate Saving,” QJE 109(3), 659–684.\nHuggett (1993), “The Risk-Free Rate in Heterogeneous-Agent Incomplete-Insurance Economies,” JEDC 17(5–6), 953–969.\nBewley (1986), “Stationary Monetary Equilibrium with a Continuum of Independently Fluctuating Consumers.”",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "The Aiyagari Model"
+    ]
+  },
+  {
+    "objectID": "lectures/02-brock-mirman.html",
+    "href": "lectures/02-brock-mirman.html",
+    "title": "Brock–Mirman Growth Model",
+    "section": "",
+    "text": "Using the Brock–Mirman (1972) optimal growth model as the running example, we develop value function iteration as a method for solving dynamic programming problems: constructing the state grid, building the return function with index packing, and verifying the contraction property of the Bellman operator together with the various convergence norms, before benchmarking the numerical solution against the closed-form solution under log utility. We treat the deterministic, iid-shock, and Markov-shock cases in turn; in the last, the Tauchen method discretizes the AR(1) productivity process into a Markov chain, and we close by simulating the model dynamics. A supplementary handout on the two-period model serves as an Euler-equation warm-up.",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Brock–Mirman Growth Model"
+    ]
+  },
+  {
+    "objectID": "lectures/02-brock-mirman.html#materials",
+    "href": "lectures/02-brock-mirman.html#materials",
+    "title": "Brock–Mirman Growth Model",
+    "section": "Materials",
+    "text": "Materials\n\nSlides: HTML · PDF\nNotebook: Lecture2.ipynb\nSupplementary notes: A Two-Period Model HTML · PDF",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Brock–Mirman Growth Model"
+    ]
+  },
+  {
+    "objectID": "lectures/02-brock-mirman.html#readings",
+    "href": "lectures/02-brock-mirman.html#readings",
+    "title": "Brock–Mirman Growth Model",
+    "section": "Readings",
+    "text": "Readings\n\nBrock & Mirman (1972), “Optimal Economic Growth and Uncertainty: The Discounted Case,” JET 4(3), 479–513.",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Brock–Mirman Growth Model"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Computational Economics",
+    "section": "",
+    "text": "Answering macroeconomic questions with quantitative methods.\nThis site collects the full set of lecture materials for the semester. Each lecture provides slides (HTML for in-browser viewing, PDF for download), runnable Jupyter notebooks, and supplementary notes. Languages and tools: Python, JAX, Git, Quarto. See Setup & how to run to install the environment and run the notebooks."
+  },
+  {
+    "objectID": "index.html#schedule",
+    "href": "index.html#schedule",
+    "title": "Computational Economics",
+    "section": "Schedule",
+    "text": "Schedule\n\n\n\nDate\nTopic\nLecture\n\n\n\n\n03-03\nCourse introduction\nCourse Outline\n\n\n03-03\nIntroduction to Python\n01 Introduction to Python\n\n\n03-10 / 03-17\nBrock–Mirman growth model\n02 Brock–Mirman Growth Model\n\n\n03-24 / 03-31\nRBC model and JAX\n03 RBC and JAX\n\n\n04-07\nAiyagari model\n04 The Aiyagari Model\n\n\n04-14\nKrusell–Smith method\n05 The Krusell–Smith Method\n\n\n04-21\nMacro public finance\n06 Macro Public Finance\n\n\n04-28\nStructural estimation\n07 Structural Estimation\n\n\n05-05\n(University anniversary holiday)\n—\n\n\n05-12\nContinuous-time heterogeneous-agent models\n08 Continuous-Time Heterogeneous Agent Models\n\n\n05-19\nSequence-space Jacobian and the IKC\n09 Sequence-Space Jacobian – IKC\n\n\n05-26 / 06-02\nAI solution methods\n10 Deep Learning Methods\n\n\n06-09\nEconGym\nMaterials TBA\n\n\n\nTwo additional prep lectures are not in the schedule above — see “Supplementary topics” in the sidebar: HANK and High Performance Computing."
+  },
+  {
+    "objectID": "extras/hpc.html",
+    "href": "extras/hpc.html",
+    "title": "High Performance Computing",
+    "section": "",
+    "text": "This supplementary topic on high-performance computing begins with the fundamentals of parallel computing (the von Neumann architecture, parallel speedup and Amdahl’s law, and strong versus weak scalability), then motivates why quantitative macroeconomics needs parallelism (global solution methods, Bayesian estimation, the simulated method of moments, and web scraping). It then covers multithreading for I/O-bound tasks with Python’s concurrent.futures (the GIL and ThreadPoolExecutor) and multiprocessing for CPU-bound tasks with joblib (Parallel/delayed), and closes by introducing JIT acceleration of numerical code with Numba (@njit, prange). This lecture is preparation material and is not on this semester’s schedule.",
+    "crumbs": [
+      "Lectures",
+      "Supplementary topics",
+      "High Performance Computing"
+    ]
+  },
+  {
+    "objectID": "extras/hpc.html#materials",
+    "href": "extras/hpc.html#materials",
+    "title": "High Performance Computing",
+    "section": "Materials",
+    "text": "Materials\n\nSlides: HTML · PDF",
+    "crumbs": [
+      "Lectures",
+      "Supplementary topics",
+      "High Performance Computing"
+    ]
+  },
+  {
+    "objectID": "extras/hpc.html#readings",
+    "href": "extras/hpc.html#readings",
+    "title": "High Performance Computing",
+    "section": "Readings",
+    "text": "Readings\n\nOpenMP Architecture Review Board (2021), OpenMP Application Programming Interface, Version 5.2.\nMessage Passing Interface Forum (2025), MPI: A Message-Passing Interface Standard, Version 5.0.",
+    "crumbs": [
+      "Lectures",
+      "Supplementary topics",
+      "High Performance Computing"
+    ]
+  },
+  {
+    "objectID": "extras/hank.html",
+    "href": "extras/hank.html",
+    "title": "HANK",
+    "section": "",
+    "text": "This lecture develops the Heterogeneous Agent New Keynesian (HANK) model following Kaplan-Moll-Violante (2018), whose three building blocks are uninsurable idiosyncratic income risk, nominal price rigidities, and assets with different degrees of liquidity. Unlike RANK, where monetary policy operates almost entirely through the direct real-interest-rate channel (intertemporal substitution), in a HANK model calibrated to micro data the direct effect accounts for less than one third of the response, with most transmission running through the indirect effects of income changes, so that the overall effect also depends crucially on the fiscal response. The model setup covers two-asset households, production, and a continuous-time New Keynesian Phillips curve; the solution part introduces continuous-time heterogeneous-agent methods, namely the HJB equation and the Kolmogorov-Forward equation, finite differences (the upwind scheme), and the computational trick that their operators are mutual adjoints. This is prep material that is not on the current syllabus and connects to the sequence-space Jacobian (SSJ) methods of Lecture 09.",
+    "crumbs": [
+      "Lectures",
+      "Supplementary topics",
+      "HANK"
+    ]
+  },
+  {
+    "objectID": "extras/hank.html#materials",
+    "href": "extras/hank.html#materials",
+    "title": "HANK",
+    "section": "Materials",
+    "text": "Materials\n\nSlides: HTML · PDF",
+    "crumbs": [
+      "Lectures",
+      "Supplementary topics",
+      "HANK"
+    ]
+  },
+  {
+    "objectID": "extras/hank.html#readings",
+    "href": "extras/hank.html#readings",
+    "title": "HANK",
+    "section": "Readings",
+    "text": "Readings\n\nKaplan, Moll & Violante (2018), “Monetary Policy According to HANK,” AER 108(3), 697–743.\nAuclert (2019), “Monetary Policy and the Redistribution Channel,” AER 109(6), 2333–2367.\nGuerrieri & Lorenzoni (2017), “Credit Crises, Precautionary Savings, and the Liquidity Trap,” QJE 132(3), 1427–1467.",
+    "crumbs": [
+      "Lectures",
+      "Supplementary topics",
+      "HANK"
+    ]
+  },
+  {
+    "objectID": "homework.html",
+    "href": "homework.html",
+    "title": "Homework",
+    "section": "",
+    "text": "The problem-set PDFs below are the authoritative copies. Submission, deadlines, and announcements are on the Notion course page.\n\n\n\nReleased\nProblem set\nSummary\n\n\n\n\n03-17\nHomework 1 (PDF)\nRewrite the BM model in sequential form and prove its equivalence to the recursive form; stochastic growth model with irreversible investment (notebook submission)\n\n\n03-25\nHomework 2 (PDF)\nSee the problem set\n\n\n04-07\nHomework 3 (PDF)\nSee the problem set"
+  },
+  {
+    "objectID": "lectures/01-python.html",
+    "href": "lectures/01-python.html",
+    "title": "Introduction to Python",
+    "section": "",
+    "text": "The toolkit starting point for the course: managing Python environments and dependencies with uv, reviewing core Python syntax (containers, functions, list comprehensions), and introducing the scientific-computing ecosystem—NumPy arrays, indexing, and broadcasting, together with plotting in Matplotlib. Two supplementary handouts accompany the lecture: solving the dynamic-programming problem of the Brock–Mirman growth model by guess-and-verify, and vectorized programming together with its limits.",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Introduction to Python"
+    ]
+  },
+  {
+    "objectID": "lectures/01-python.html#materials",
+    "href": "lectures/01-python.html#materials",
+    "title": "Introduction to Python",
+    "section": "Materials",
+    "text": "Materials\n\nSlides: HTML · PDF\nNotebook: Lecture1_Python.ipynb · PDF\nSupplementary notes: Guess and Verify HTML · PDF; Vectorization HTML · PDF",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Introduction to Python"
+    ]
+  },
+  {
+    "objectID": "lectures/01-python.html#readings",
+    "href": "lectures/01-python.html#readings",
+    "title": "Introduction to Python",
+    "section": "Readings",
+    "text": "Readings\n\nPython Software Foundation, Official Python 3 documentation, https://docs.python.org/3/.\nHarris et al. (2020), “Array programming with NumPy,” Nature 585, 357–362.\nVirtanen et al. (2020), “SciPy 1.0,” Nature Methods 17, 261–272.\nMcKinney (2010), “Data Structures for Statistical Computing in Python,” SciPy 2010.\nHunter (2007), “Matplotlib: A 2D Graphics Environment,” CiSE 9(3), 90–95.",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Introduction to Python"
+    ]
+  },
+  {
+    "objectID": "lectures/03-rbc-jax.html",
+    "href": "lectures/03-rbc-jax.html",
+    "title": "RBC and JAX",
+    "section": "",
+    "text": "Starting from Hansen’s (1985) indivisible-labor RBC model, we set up the divisible-labor version, calibrate its steady state, and solve it: the Bellman equation is solved by value function iteration, while optimal labor supply is recovered from the intratemporal first-order condition (via bisection). We then build the entire solver in JAX — just-in-time compilation with jax.jit, vectorization with jax.vmap, structured control flow with jax.lax.while_loop and jax.lax.scan, and stateless random-number generation — and conclude by simulating the model.",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "RBC and JAX"
+    ]
+  },
+  {
+    "objectID": "lectures/03-rbc-jax.html#materials",
+    "href": "lectures/03-rbc-jax.html#materials",
+    "title": "RBC and JAX",
+    "section": "Materials",
+    "text": "Materials\n\nSlides: HTML · PDF\nNotebook: lecture3.ipynb",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "RBC and JAX"
+    ]
+  },
+  {
+    "objectID": "lectures/03-rbc-jax.html#readings",
+    "href": "lectures/03-rbc-jax.html#readings",
+    "title": "RBC and JAX",
+    "section": "Readings",
+    "text": "Readings\n\nKydland & Prescott (1982), “Time to Build and Aggregate Fluctuations,” Econometrica 50(6), 1345–1370.\nHansen (1985), “Indivisible Labor and the Business Cycle,” JME 16(3), 309–327.\nKing, Plosser & Rebelo (1988), “Production, Growth and Business Cycles: I. The Basic Neoclassical Model,” JME 21(2–3), 195–232.\nPrescott (1986), “Theory Ahead of Business Cycle Measurement,” Federal Reserve Bank of Minneapolis Quarterly Review.\nBradbury et al. (2018), JAX: composable transformations of Python+NumPy programs. https://github.com/jax-ml/jax",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "RBC and JAX"
+    ]
+  },
+  {
+    "objectID": "lectures/05-krusell-smith.html",
+    "href": "lectures/05-krusell-smith.html",
+    "title": "The Krusell–Smith Method",
+    "section": "",
+    "text": "An incomplete-markets heterogeneous-agent model with both idiosyncratic and aggregate risk, in which the wealth distribution is itself an endogenous, infinite-dimensional state variable. The Krusell–Smith method confronts this challenge through approximate aggregation: it replaces the full law of motion of the distribution with a forecasting rule for aggregate capital (a log-linear regression of \\(\\log K'\\) on \\(\\log K\\), estimated separately in good and bad aggregate states), and iterates an outer fixed point until that rule is self-consistent. The lecture covers the algorithm, accuracy checks, and the limits of its applicability, and provides a complete JAX implementation based on policy function iteration.",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "The Krusell–Smith Method"
+    ]
+  },
+  {
+    "objectID": "lectures/05-krusell-smith.html#materials",
+    "href": "lectures/05-krusell-smith.html#materials",
+    "title": "The Krusell–Smith Method",
+    "section": "Materials",
+    "text": "Materials\n\nSlides: HTML · PDF\nNotebook: KSMethod.ipynb",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "The Krusell–Smith Method"
+    ]
+  },
+  {
+    "objectID": "lectures/05-krusell-smith.html#readings",
+    "href": "lectures/05-krusell-smith.html#readings",
+    "title": "The Krusell–Smith Method",
+    "section": "Readings",
+    "text": "Readings\n\nKrusell & Smith (1998), “Income and Wealth Heterogeneity in the Macroeconomy,” JPE 106(5), 867–896.",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "The Krusell–Smith Method"
+    ]
+  },
+  {
+    "objectID": "lectures/07-structural-estimation.html",
+    "href": "lectures/07-structural-estimation.html",
+    "title": "Structural Estimation",
+    "section": "",
+    "text": "Using Rust’s (1987) Harold Zurcher bus engine replacement problem as the organizing thread, this lecture develops the structural estimation of dynamic discrete choice models. It covers the stochastic dynamic programming formulation of the optimal stopping problem and its Bellman equation, the contraction-mapping property that justifies value function iteration, and the key distributional assumptions (additive separability, conditional independence, and Type-I extreme value shocks) that make the model estimable, yielding logit-form conditional choice probabilities. Building on this, it introduces maximum likelihood estimation and the inner and outer loops of the nested fixed point algorithm (NFXP), and contrasts it with alternative DDC estimators such as Hotz–Miller, Bajari–Benkard–Levin, and Su–Judd. A complete Python implementation and data are included.",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Structural Estimation"
+    ]
+  },
+  {
+    "objectID": "lectures/07-structural-estimation.html#materials",
+    "href": "lectures/07-structural-estimation.html#materials",
+    "title": "Structural Estimation",
+    "section": "Materials",
+    "text": "Materials\n\nSlides: Structural Estimation (PDF)\nCode & data: main.py · functions.py · group_4.csv",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Structural Estimation"
+    ]
+  },
+  {
+    "objectID": "lectures/07-structural-estimation.html#readings",
+    "href": "lectures/07-structural-estimation.html#readings",
+    "title": "Structural Estimation",
+    "section": "Readings",
+    "text": "Readings\nThis lecture’s slides follow Rust’s method as the main thread:\n\nRust (1987), “Optimal Replacement of GMC Bus Engines: An Empirical Model of Harold Zurcher,” Econometrica 55(5), 999–1033.\nBajari, Benkard & Levin (2007), “Estimating Dynamic Models of Imperfect Competition,” Econometrica 75(5), 1331–1370.\n\nExtended background reading on structural estimation methods (at the course level, not directly covered by this lecture’s slides):\n\nHansen (1982), “Large Sample Properties of Generalized Method of Moments Estimators,” Econometrica 50(4), 1029–1054.\nMcFadden (1989); Pakes & Pollard (1989): simulated method of moments, Econometrica 57(5).\nGourieroux, Monfort & Renault (1993), “Indirect Inference,” J. Applied Econometrics 8, S85–S118.",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Structural Estimation"
+    ]
+  },
+  {
+    "objectID": "lectures/09-ssj.html",
+    "href": "lectures/09-ssj.html",
+    "title": "Sequence-Space Jacobian – IKC",
+    "section": "",
+    "text": "The lecture begins with the intertemporal Keynesian cross (IKC), showing that the matrix of intertemporal marginal propensities to consume (iMPCs) \\(\\mathbf{M}\\) is a sufficient statistic for the macroeconomic response of heterogeneous-agent models to fiscal policy, and compares its shape and the implied fiscal multipliers across alternative consumption models (RA, TA, HA). It then contrasts the state-space and sequence-space representations and introduces the sequence-space Jacobian (SSJ) method: linearizing the model around the steady state, solving for impulse responses via Jacobian matrices, and conducting estimation and local-determinacy testing. Finally, using the Krusell–Smith model as an example, it explains how the fake-news algorithm rapidly constructs the Jacobian of the heterogeneous-agent block.",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Sequence-Space Jacobian – IKC"
+    ]
+  },
+  {
+    "objectID": "lectures/09-ssj.html#materials",
+    "href": "lectures/09-ssj.html#materials",
+    "title": "Sequence-Space Jacobian – IKC",
+    "section": "Materials",
+    "text": "Materials\n\nSlides: Slides 05-19 (PDF)",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Sequence-Space Jacobian – IKC"
+    ]
+  },
+  {
+    "objectID": "lectures/09-ssj.html#readings",
+    "href": "lectures/09-ssj.html#readings",
+    "title": "Sequence-Space Jacobian – IKC",
+    "section": "Readings",
+    "text": "Readings\n\nAuclert, Bardóczy, Rognlie & Straub (2021), “Using the Sequence-Space Jacobian to Solve and Estimate Heterogeneous-Agent Models,” Econometrica 89(5), 2379–2419.\nAuclert, Rognlie & Straub, “The Intertemporal Keynesian Cross.”\nCode repository: https://github.com/shade-econ/sequence-jacobian",
+    "crumbs": [
+      "Lectures",
+      "Lectures (in teaching order)",
+      "Sequence-Space Jacobian – IKC"
+    ]
+  },
+  {
     "objectID": "outline.html",
     "href": "outline.html",
     "title": "Course Outline",
@@ -103,458 +591,5 @@
     "title": "Course Outline",
     "section": "12.1 Readings",
     "text": "12.1 Readings\n\nRocklin (2015)\nOpenMP Architecture Review Board (2021)\nMessage Passing Interface Forum (2025)"
-  },
-  {
-    "objectID": "lectures/09-ssj.html",
-    "href": "lectures/09-ssj.html",
-    "title": "Sequence-Space Jacobian – IKC",
-    "section": "",
-    "text": "The lecture begins with the intertemporal Keynesian cross (IKC), showing that the matrix of intertemporal marginal propensities to consume (iMPCs) \\(\\mathbf{M}\\) is a sufficient statistic for the macroeconomic response of heterogeneous-agent models to fiscal policy, and compares its shape and the implied fiscal multipliers across alternative consumption models (RA, TA, HA). It then contrasts the state-space and sequence-space representations and introduces the sequence-space Jacobian (SSJ) method: linearizing the model around the steady state, solving for impulse responses via Jacobian matrices, and conducting estimation and local-determinacy testing. Finally, using the Krusell–Smith model as an example, it explains how the fake-news algorithm rapidly constructs the Jacobian of the heterogeneous-agent block.",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Sequence-Space Jacobian – IKC"
-    ]
-  },
-  {
-    "objectID": "lectures/09-ssj.html#materials",
-    "href": "lectures/09-ssj.html#materials",
-    "title": "Sequence-Space Jacobian – IKC",
-    "section": "Materials",
-    "text": "Materials\n\nSlides: Slides 05-19 (PDF)",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Sequence-Space Jacobian – IKC"
-    ]
-  },
-  {
-    "objectID": "lectures/09-ssj.html#readings",
-    "href": "lectures/09-ssj.html#readings",
-    "title": "Sequence-Space Jacobian – IKC",
-    "section": "Readings",
-    "text": "Readings\n\nAuclert, Bardóczy, Rognlie & Straub (2021), “Using the Sequence-Space Jacobian to Solve and Estimate Heterogeneous-Agent Models,” Econometrica 89(5), 2379–2419.\nAuclert, Rognlie & Straub, “The Intertemporal Keynesian Cross.”\nCode repository: https://github.com/shade-econ/sequence-jacobian",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Sequence-Space Jacobian – IKC"
-    ]
-  },
-  {
-    "objectID": "lectures/07-structural-estimation.html",
-    "href": "lectures/07-structural-estimation.html",
-    "title": "Structural Estimation",
-    "section": "",
-    "text": "Using Rust’s (1987) Harold Zurcher bus engine replacement problem as the organizing thread, this lecture develops the structural estimation of dynamic discrete choice models. It covers the stochastic dynamic programming formulation of the optimal stopping problem and its Bellman equation, the contraction-mapping property that justifies value function iteration, and the key distributional assumptions (additive separability, conditional independence, and Type-I extreme value shocks) that make the model estimable, yielding logit-form conditional choice probabilities. Building on this, it introduces maximum likelihood estimation and the inner and outer loops of the nested fixed point algorithm (NFXP), and contrasts it with alternative DDC estimators such as Hotz–Miller, Bajari–Benkard–Levin, and Su–Judd. A complete Python implementation and data are included.",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Structural Estimation"
-    ]
-  },
-  {
-    "objectID": "lectures/07-structural-estimation.html#materials",
-    "href": "lectures/07-structural-estimation.html#materials",
-    "title": "Structural Estimation",
-    "section": "Materials",
-    "text": "Materials\n\nSlides: Structural Estimation (PDF)\nCode & data: main.py · functions.py · group_4.csv",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Structural Estimation"
-    ]
-  },
-  {
-    "objectID": "lectures/07-structural-estimation.html#readings",
-    "href": "lectures/07-structural-estimation.html#readings",
-    "title": "Structural Estimation",
-    "section": "Readings",
-    "text": "Readings\nThis lecture’s slides follow Rust’s method as the main thread:\n\nRust (1987), “Optimal Replacement of GMC Bus Engines: An Empirical Model of Harold Zurcher,” Econometrica 55(5), 999–1033.\nBajari, Benkard & Levin (2007), “Estimating Dynamic Models of Imperfect Competition,” Econometrica 75(5), 1331–1370.\n\nExtended background reading on structural estimation methods (at the course level, not directly covered by this lecture’s slides):\n\nHansen (1982), “Large Sample Properties of Generalized Method of Moments Estimators,” Econometrica 50(4), 1029–1054.\nMcFadden (1989); Pakes & Pollard (1989): simulated method of moments, Econometrica 57(5).\nGourieroux, Monfort & Renault (1993), “Indirect Inference,” J. Applied Econometrics 8, S85–S118.",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Structural Estimation"
-    ]
-  },
-  {
-    "objectID": "lectures/05-krusell-smith.html",
-    "href": "lectures/05-krusell-smith.html",
-    "title": "The Krusell–Smith Method",
-    "section": "",
-    "text": "An incomplete-markets heterogeneous-agent model with both idiosyncratic and aggregate risk, in which the wealth distribution is itself an endogenous, infinite-dimensional state variable. The Krusell–Smith method confronts this challenge through approximate aggregation: it replaces the full law of motion of the distribution with a forecasting rule for aggregate capital (a log-linear regression of \\(\\log K'\\) on \\(\\log K\\), estimated separately in good and bad aggregate states), and iterates an outer fixed point until that rule is self-consistent. The lecture covers the algorithm, accuracy checks, and the limits of its applicability, and provides a complete JAX implementation based on policy function iteration.",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "The Krusell–Smith Method"
-    ]
-  },
-  {
-    "objectID": "lectures/05-krusell-smith.html#materials",
-    "href": "lectures/05-krusell-smith.html#materials",
-    "title": "The Krusell–Smith Method",
-    "section": "Materials",
-    "text": "Materials\n\nSlides: HTML · PDF\nNotebook: KSMethod.ipynb",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "The Krusell–Smith Method"
-    ]
-  },
-  {
-    "objectID": "lectures/05-krusell-smith.html#readings",
-    "href": "lectures/05-krusell-smith.html#readings",
-    "title": "The Krusell–Smith Method",
-    "section": "Readings",
-    "text": "Readings\n\nKrusell & Smith (1998), “Income and Wealth Heterogeneity in the Macroeconomy,” JPE 106(5), 867–896.",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "The Krusell–Smith Method"
-    ]
-  },
-  {
-    "objectID": "lectures/03-rbc-jax.html",
-    "href": "lectures/03-rbc-jax.html",
-    "title": "RBC and JAX",
-    "section": "",
-    "text": "Starting from Hansen’s (1985) indivisible-labor RBC model, we set up the divisible-labor version, calibrate its steady state, and solve it: the Bellman equation is solved by value function iteration, while optimal labor supply is recovered from the intratemporal first-order condition (via bisection). We then build the entire solver in JAX — just-in-time compilation with jax.jit, vectorization with jax.vmap, structured control flow with jax.lax.while_loop and jax.lax.scan, and stateless random-number generation — and conclude by simulating the model.",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "RBC and JAX"
-    ]
-  },
-  {
-    "objectID": "lectures/03-rbc-jax.html#materials",
-    "href": "lectures/03-rbc-jax.html#materials",
-    "title": "RBC and JAX",
-    "section": "Materials",
-    "text": "Materials\n\nSlides: HTML · PDF\nNotebook: lecture3.ipynb",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "RBC and JAX"
-    ]
-  },
-  {
-    "objectID": "lectures/03-rbc-jax.html#readings",
-    "href": "lectures/03-rbc-jax.html#readings",
-    "title": "RBC and JAX",
-    "section": "Readings",
-    "text": "Readings\n\nKydland & Prescott (1982), “Time to Build and Aggregate Fluctuations,” Econometrica 50(6), 1345–1370.\nHansen (1985), “Indivisible Labor and the Business Cycle,” JME 16(3), 309–327.\nKing, Plosser & Rebelo (1988), “Production, Growth and Business Cycles: I. The Basic Neoclassical Model,” JME 21(2–3), 195–232.\nPrescott (1986), “Theory Ahead of Business Cycle Measurement,” Federal Reserve Bank of Minneapolis Quarterly Review.\nBradbury et al. (2018), JAX: composable transformations of Python+NumPy programs. https://github.com/jax-ml/jax",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "RBC and JAX"
-    ]
-  },
-  {
-    "objectID": "lectures/01-python.html",
-    "href": "lectures/01-python.html",
-    "title": "Introduction to Python",
-    "section": "",
-    "text": "The toolkit starting point for the course: managing Python environments and dependencies with uv, reviewing core Python syntax (containers, functions, list comprehensions), and introducing the scientific-computing ecosystem—NumPy arrays, indexing, and broadcasting, together with plotting in Matplotlib. Two supplementary handouts accompany the lecture: solving the dynamic-programming problem of the Brock–Mirman growth model by guess-and-verify, and vectorized programming together with its limits.",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Introduction to Python"
-    ]
-  },
-  {
-    "objectID": "lectures/01-python.html#materials",
-    "href": "lectures/01-python.html#materials",
-    "title": "Introduction to Python",
-    "section": "Materials",
-    "text": "Materials\n\nSlides: HTML · PDF\nNotebook: Lecture1_Python.ipynb · PDF\nSupplementary notes: Guess and Verify HTML · PDF; Vectorization HTML · PDF",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Introduction to Python"
-    ]
-  },
-  {
-    "objectID": "lectures/01-python.html#readings",
-    "href": "lectures/01-python.html#readings",
-    "title": "Introduction to Python",
-    "section": "Readings",
-    "text": "Readings\n\nPython Software Foundation, Official Python 3 documentation, https://docs.python.org/3/.\nHarris et al. (2020), “Array programming with NumPy,” Nature 585, 357–362.\nVirtanen et al. (2020), “SciPy 1.0,” Nature Methods 17, 261–272.\nMcKinney (2010), “Data Structures for Statistical Computing in Python,” SciPy 2010.\nHunter (2007), “Matplotlib: A 2D Graphics Environment,” CiSE 9(3), 90–95.",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Introduction to Python"
-    ]
-  },
-  {
-    "objectID": "homework.html",
-    "href": "homework.html",
-    "title": "Homework",
-    "section": "",
-    "text": "Homework submission and deadlines are on the Notion course page. This page archives the problem sets only.\n\n\n\nReleased\nProblem set\nSummary\n\n\n\n\n03-17\nHomework 1 (PDF)\nRewrite the BM model in sequential form and prove its equivalence to the recursive form; stochastic growth model with irreversible investment (notebook submission)\n\n\n03-25\nHomework 2 (PDF)\nSee the problem set\n\n\n04-07\nHomework 3 (PDF)\nSee the problem set"
-  },
-  {
-    "objectID": "extras/hank.html",
-    "href": "extras/hank.html",
-    "title": "HANK",
-    "section": "",
-    "text": "This lecture develops the Heterogeneous Agent New Keynesian (HANK) model following Kaplan-Moll-Violante (2018), whose three building blocks are uninsurable idiosyncratic income risk, nominal price rigidities, and assets with different degrees of liquidity. Unlike RANK, where monetary policy operates almost entirely through the direct real-interest-rate channel (intertemporal substitution), in a HANK model calibrated to micro data the direct effect accounts for less than one third of the response, with most transmission running through the indirect effects of income changes, so that the overall effect also depends crucially on the fiscal response. The model setup covers two-asset households, production, and a continuous-time New Keynesian Phillips curve; the solution part introduces continuous-time heterogeneous-agent methods, namely the HJB equation and the Kolmogorov-Forward equation, finite differences (the upwind scheme), and the computational trick that their operators are mutual adjoints. This is prep material that is not on the current syllabus and connects to the sequence-space Jacobian (SSJ) methods of Lecture 09.",
-    "crumbs": [
-      "Lectures",
-      "Supplementary topics",
-      "HANK"
-    ]
-  },
-  {
-    "objectID": "extras/hank.html#materials",
-    "href": "extras/hank.html#materials",
-    "title": "HANK",
-    "section": "Materials",
-    "text": "Materials\n\nSlides: HTML · PDF",
-    "crumbs": [
-      "Lectures",
-      "Supplementary topics",
-      "HANK"
-    ]
-  },
-  {
-    "objectID": "extras/hank.html#readings",
-    "href": "extras/hank.html#readings",
-    "title": "HANK",
-    "section": "Readings",
-    "text": "Readings\n\nKaplan, Moll & Violante (2018), “Monetary Policy According to HANK,” AER 108(3), 697–743.\nAuclert (2019), “Monetary Policy and the Redistribution Channel,” AER 109(6), 2333–2367.\nGuerrieri & Lorenzoni (2017), “Credit Crises, Precautionary Savings, and the Liquidity Trap,” QJE 132(3), 1427–1467.",
-    "crumbs": [
-      "Lectures",
-      "Supplementary topics",
-      "HANK"
-    ]
-  },
-  {
-    "objectID": "extras/hpc.html",
-    "href": "extras/hpc.html",
-    "title": "High Performance Computing",
-    "section": "",
-    "text": "This supplementary topic on high-performance computing begins with the fundamentals of parallel computing (the von Neumann architecture, parallel speedup and Amdahl’s law, and strong versus weak scalability), then motivates why quantitative macroeconomics needs parallelism (global solution methods, Bayesian estimation, the simulated method of moments, and web scraping). It then covers multithreading for I/O-bound tasks with Python’s concurrent.futures (the GIL and ThreadPoolExecutor) and multiprocessing for CPU-bound tasks with joblib (Parallel/delayed), and closes by introducing JIT acceleration of numerical code with Numba (@njit, prange). This lecture is preparation material and is not on this semester’s schedule.",
-    "crumbs": [
-      "Lectures",
-      "Supplementary topics",
-      "High Performance Computing"
-    ]
-  },
-  {
-    "objectID": "extras/hpc.html#materials",
-    "href": "extras/hpc.html#materials",
-    "title": "High Performance Computing",
-    "section": "Materials",
-    "text": "Materials\n\nSlides: HTML · PDF",
-    "crumbs": [
-      "Lectures",
-      "Supplementary topics",
-      "High Performance Computing"
-    ]
-  },
-  {
-    "objectID": "extras/hpc.html#readings",
-    "href": "extras/hpc.html#readings",
-    "title": "High Performance Computing",
-    "section": "Readings",
-    "text": "Readings\n\nOpenMP Architecture Review Board (2021), OpenMP Application Programming Interface, Version 5.2.\nMessage Passing Interface Forum (2025), MPI: A Message-Passing Interface Standard, Version 5.0.",
-    "crumbs": [
-      "Lectures",
-      "Supplementary topics",
-      "High Performance Computing"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Computational Economics",
-    "section": "",
-    "text": "Answering macroeconomic questions with quantitative methods.\nThis site collects the full set of lecture materials for the semester. Each lecture provides slides (HTML for in-browser viewing, PDF for download), runnable Jupyter notebooks, and supplementary notes. Languages and tools: Python, JAX, Git, Quarto."
-  },
-  {
-    "objectID": "index.html#schedule",
-    "href": "index.html#schedule",
-    "title": "Computational Economics",
-    "section": "Schedule",
-    "text": "Schedule\n\n\n\nDate\nTopic\nLecture\n\n\n\n\n03-03\nCourse introduction\nCourse Outline\n\n\n03-03\nIntroduction to Python\n01 Introduction to Python\n\n\n03-10 / 03-17\nBrock–Mirman growth model\n02 Brock–Mirman Growth Model\n\n\n03-24 / 03-31\nRBC model and JAX\n03 RBC and JAX\n\n\n04-07\nAiyagari model\n04 The Aiyagari Model\n\n\n04-14\nKrusell–Smith method\n05 The Krusell–Smith Method\n\n\n04-21\nMacro public finance\n06 Macro Public Finance\n\n\n04-28\nStructural estimation\n07 Structural Estimation\n\n\n05-05\n(University anniversary holiday)\n—\n\n\n05-12\nContinuous-time heterogeneous-agent models\n08 Continuous-Time Heterogeneous Agent Models\n\n\n05-19\nSequence-space Jacobian and the IKC\n09 Sequence-Space Jacobian – IKC\n\n\n05-26 / 06-02\nAI solution methods\n10 Deep Learning Methods\n\n\n06-09\nEconGym\nMaterials TBA\n\n\n\nTwo additional prep lectures are not in the schedule above — see “Supplementary topics” in the sidebar: HANK and High Performance Computing."
-  },
-  {
-    "objectID": "lectures/02-brock-mirman.html",
-    "href": "lectures/02-brock-mirman.html",
-    "title": "Brock–Mirman Growth Model",
-    "section": "",
-    "text": "Using the Brock–Mirman (1972) optimal growth model as the running example, we develop value function iteration as a method for solving dynamic programming problems: constructing the state grid, building the return function with index packing, and verifying the contraction property of the Bellman operator together with the various convergence norms, before benchmarking the numerical solution against the closed-form solution under log utility. We treat the deterministic, iid-shock, and Markov-shock cases in turn; in the last, the Tauchen method discretizes the AR(1) productivity process into a Markov chain, and we close by simulating the model dynamics. A supplementary handout on the two-period model serves as an Euler-equation warm-up.",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Brock–Mirman Growth Model"
-    ]
-  },
-  {
-    "objectID": "lectures/02-brock-mirman.html#materials",
-    "href": "lectures/02-brock-mirman.html#materials",
-    "title": "Brock–Mirman Growth Model",
-    "section": "Materials",
-    "text": "Materials\n\nSlides: HTML · PDF\nNotebook: Lecture2.ipynb\nSupplementary notes: A Two-Period Model HTML · PDF",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Brock–Mirman Growth Model"
-    ]
-  },
-  {
-    "objectID": "lectures/02-brock-mirman.html#readings",
-    "href": "lectures/02-brock-mirman.html#readings",
-    "title": "Brock–Mirman Growth Model",
-    "section": "Readings",
-    "text": "Readings\n\nBrock & Mirman (1972), “Optimal Economic Growth and Uncertainty: The Discounted Case,” JET 4(3), 479–513.",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Brock–Mirman Growth Model"
-    ]
-  },
-  {
-    "objectID": "lectures/04-aiyagari.html",
-    "href": "lectures/04-aiyagari.html",
-    "title": "The Aiyagari Model",
-    "section": "",
-    "text": "The benchmark model of incomplete markets with heterogeneous agents: households face uninsurable idiosyncratic income risk, solve a standard savings problem, and the asset-income distribution is represented as a Markov chain to obtain its stationary distribution. In the production economy of Aiyagari (1994), factor prices are determined endogenously by the firm’s marginal conditions, and the general-equilibrium capital stock and interest rate are pinned down by the market-clearing fixed point. The solution is implemented in JAX, covering Howard policy iteration, the endogenous grid method (EGM), and power iteration for the stationary distribution, with supplementary notes on EGM.",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "The Aiyagari Model"
-    ]
-  },
-  {
-    "objectID": "lectures/04-aiyagari.html#materials",
-    "href": "lectures/04-aiyagari.html#materials",
-    "title": "The Aiyagari Model",
-    "section": "Materials",
-    "text": "Materials\n\nSlides: HTML · PDF\nNotebook: aiyagari_jax.ipynb\nSupplementary notes: EGM using JAX (PDF)",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "The Aiyagari Model"
-    ]
-  },
-  {
-    "objectID": "lectures/04-aiyagari.html#readings",
-    "href": "lectures/04-aiyagari.html#readings",
-    "title": "The Aiyagari Model",
-    "section": "Readings",
-    "text": "Readings\n\nAiyagari (1994), “Uninsured Idiosyncratic Risk and Aggregate Saving,” QJE 109(3), 659–684.\nHuggett (1993), “The Risk-Free Rate in Heterogeneous-Agent Incomplete-Insurance Economies,” JEDC 17(5–6), 953–969.\nBewley (1986), “Stationary Monetary Equilibrium with a Continuum of Independently Fluctuating Consumers.”",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "The Aiyagari Model"
-    ]
-  },
-  {
-    "objectID": "lectures/06-public-finance.html",
-    "href": "lectures/06-public-finance.html",
-    "title": "Macro Public Finance",
-    "section": "",
-    "text": "A topic in macro public finance, taught through a study of optimal property taxation. We develop methods for solving the steady state and transition path of an overlapping-generations (OLG) model with heterogeneous households, incomplete markets, and endogenous house prices and rents. Embedding a realistic fiscal system of taxes and transfers, the lecture uses numerical experiments to assess the macroeconomic, welfare, and distributional effects of property tax reform under alternative tax rates, exemption schemes, and revenue-substitution scenarios.",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Macro Public Finance"
-    ]
-  },
-  {
-    "objectID": "lectures/06-public-finance.html#materials",
-    "href": "lectures/06-public-finance.html#materials",
-    "title": "Macro Public Finance",
-    "section": "Materials",
-    "text": "Materials\n\nLecture deck: Property Tax in an OLG Model (PDF)",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Macro Public Finance"
-    ]
-  },
-  {
-    "objectID": "lectures/06-public-finance.html#readings",
-    "href": "lectures/06-public-finance.html#readings",
-    "title": "Macro Public Finance",
-    "section": "Readings",
-    "text": "Readings\n\nConesa, Li & Li (2023), “A Quantitative Evaluation of Universal Basic Income,” Journal of Public Economics 223, 104881.",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Macro Public Finance"
-    ]
-  },
-  {
-    "objectID": "lectures/08-hact.html",
-    "href": "lectures/08-hact.html",
-    "title": "Continuous-Time Heterogeneous Agent Models",
-    "section": "",
-    "text": "Continuous-time heterogeneous agent models (HACT / Huggett type): the income process is modeled as a continuous-time Markov chain, and we derive the HJB equation for the value function together with the Kolmogorov Forward (KF) equation for the distribution, which form a coupled system of partial differential equations. Numerically, we discretize via finite differences (using an upwind scheme and boundary handling for the state constraint), and compare explicit iteration with an implicit (sparse linear system) solver; we then solve the KFE for the stationary distribution and back out the equilibrium interest rate. Everything is implemented in Python/JAX.",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Continuous-Time Heterogeneous Agent Models"
-    ]
-  },
-  {
-    "objectID": "lectures/08-hact.html#materials",
-    "href": "lectures/08-hact.html#materials",
-    "title": "Continuous-Time Heterogeneous Agent Models",
-    "section": "Materials",
-    "text": "Materials\n\nSlides: HTML · PDF",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Continuous-Time Heterogeneous Agent Models"
-    ]
-  },
-  {
-    "objectID": "lectures/08-hact.html#readings",
-    "href": "lectures/08-hact.html#readings",
-    "title": "Continuous-Time Heterogeneous Agent Models",
-    "section": "Readings",
-    "text": "Readings\n\nAchdou, Han, Lasry, Lions & Moll (2022), “Income and Wealth Distribution in Macroeconomics: A Continuous-Time Approach,” Review of Economic Studies 89(1), 45–86.\nHuggett (1993), “The Risk-Free Rate in Heterogeneous-Agent Incomplete-Insurance Economies,” Journal of Economic Dynamics and Control 17(5–6), 953–969.\nCandler (1999), “Finite-Difference Methods for Dynamic Programming Problems,” in Computational Methods for the Study of Dynamic Economies, Cambridge University Press.\nAhn, Kaplan, Moll, Winberry & Wolf (2018), “When Inequality Matters for Macro and Macro Matters for Inequality,” NBER Macroeconomics Annual 32(1), 1–75.",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Continuous-Time Heterogeneous Agent Models"
-    ]
-  },
-  {
-    "objectID": "lectures/10-deep-learning.html",
-    "href": "lectures/10-deep-learning.html",
-    "title": "Deep Learning Methods",
-    "section": "",
-    "text": "Solving dynamic economic models with deep learning. Part 1 starts from the machine-learning toolkit (neural networks, loss functions, stochastic gradient descent, automatic differentiation) and, using a consumption–savings model with a borrowing constraint, introduces three ways to recast a dynamic model as a loss function (lifetime utility, Euler-equation residual, Bellman residual); the occasionally binding constraint is handled with the Fischer–Burmeister function, and the all-in-one expectation operator collapses the nested expectations into a single layer of Monte Carlo, yielding an end-to-end JAX implementation of the Euler-residual method. Part 2 carries the same toolkit (FB + AiO + Adam + autodiff) to a Krusell–Smith model with aggregate shocks: a single neural network takes the entire cross-sectional distribution directly as a state input and is solved globally in JAX/Equinox via vmap, with checks on the decision rule, the ergodic distribution, and whether approximate aggregation holds.",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Deep Learning Methods"
-    ]
-  },
-  {
-    "objectID": "lectures/10-deep-learning.html#materials",
-    "href": "lectures/10-deep-learning.html#materials",
-    "title": "Deep Learning Methods",
-    "section": "Materials",
-    "text": "Materials\n\nPart 1 — Deep Learning Methods: HTML · PDF · Notebook\nPart 2 — Deep Learning for Krusell–Smith: HTML · PDF · Notebook",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Deep Learning Methods"
-    ]
-  },
-  {
-    "objectID": "lectures/10-deep-learning.html#readings",
-    "href": "lectures/10-deep-learning.html#readings",
-    "title": "Deep Learning Methods",
-    "section": "Readings",
-    "text": "Readings\n\nMaliar, Maliar & Winant (2021), “Deep Learning for Solving Dynamic Economic Models,” JME 122, 76–101. (primary slide reference)\nHan, Yang & E (2021), “DeepHAM: A Global Solution Method for Heterogeneous Agent Models with Aggregate Shocks,” forthcoming in Quantitative Economics.\nMaliar & Maliar (2022), “Deep Learning Classification: Modeling Discrete Labor Choice,” JEDC 135.\nGu, Laurière, Merkel & Payne (2024), “Global Solutions to Master Equations for Continuous Time Heterogeneous Agent Macroeconomic Models.”\nAchdou, Han, Lasry, Lions & Moll (2022), “Income and Wealth Distribution in Macroeconomics: A Continuous-Time Approach,” RES 89(1), 45–86.",
-    "crumbs": [
-      "Lectures",
-      "Lectures (in teaching order)",
-      "Deep Learning Methods"
-    ]
   }
 ]
