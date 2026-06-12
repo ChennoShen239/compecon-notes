@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.27">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to Python – 计算经济学 2026</title>
+<title>Introduction to Python – Computational Economics 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -55,17 +55,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "没有结果",
-    "search-matching-documents-text": "匹配的文档",
-    "search-copy-link-title": "复制搜索链接",
-    "search-hide-matches-text": "隐藏其它匹配结果",
-    "search-more-match-text": "更多匹配结果",
-    "search-more-matches-text": "更多匹配结果",
-    "search-clear-button-title": "清除",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "取消",
-    "search-submit-button-title": "提交",
-    "search-label": "搜索"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -80,36 +80,36 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">计算经济学 2026</span>
+    <span class="navbar-title">Computational Economics 2026</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="搜索"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="展开或折叠导航栏" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
-<span class="menu-text">首页</span></a>
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../outline.html"> 
-<span class="menu-text">课程大纲</span></a>
+<span class="menu-text">Course Outline</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="../lectures/01-python.html" aria-current="page"> 
-<span class="menu-text">讲义</span></a>
+<span class="menu-text">Lectures</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../homework.html"> 
-<span class="menu-text">作业</span></a>
+<span class="menu-text">Homework</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="https://pkulibo.notion.site/ce2026"> 
-<span class="menu-text">Notion 课程页</span></a>
+<span class="menu-text">Notion course page</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -119,11 +119,11 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/01-python.html">讲义（按授课顺序）</a></li><li class="breadcrumb-item"><a href="../lectures/01-python.html">Introduction to Python</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/01-python.html">Lectures (in teaching order)</a></li><li class="breadcrumb-item"><a href="../lectures/01-python.html">Introduction to Python</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -137,8 +137,8 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">讲义（按授课顺序）</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+ <span class="menu-text">Lectures (in teaching order)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -208,8 +208,8 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">补充专题</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+ <span class="menu-text">Supplementary topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -237,10 +237,10 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/01-python.html">讲义（按授课顺序）</a></li><li class="breadcrumb-item"><a href="../lectures/01-python.html">Introduction to Python</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/01-python.html">Lectures (in teaching order)</a></li><li class="breadcrumb-item"><a href="../lectures/01-python.html">Introduction to Python</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Introduction to Python</h1>
-<p class="subtitle lead">第 01 讲 · 2026-03-03</p>
+<p class="subtitle lead">Lecture 1 · 2026-03-03</p>
 </div>
 
 
@@ -257,17 +257,17 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>课程的工具起点：用 <code>uv</code> 管理 Python 环境与依赖，回顾 Python 基础语法（容器、函数、列表 推导式），并介绍科学计算生态——NumPy 的数组、索引与广播，以及 Matplotlib 绘图。配套两份 补充讲义：用 Guess-and-Verify 解 Brock–Mirman 增长模型的动态规划问题，以及向量化编程及其局限。</p>
-<section id="材料" class="level2">
-<h2 class="anchored" data-anchor-id="材料">材料</h2>
+<p>The toolkit starting point for the course: managing Python environments and dependencies with <code>uv</code>, reviewing core Python syntax (containers, functions, list comprehensions), and introducing the scientific-computing ecosystem—NumPy arrays, indexing, and broadcasting, together with plotting in Matplotlib. Two supplementary handouts accompany the lecture: solving the dynamic-programming problem of the Brock–Mirman growth model by guess-and-verify, and vectorized programming together with its limits.</p>
+<section id="materials" class="level2">
+<h2 class="anchored" data-anchor-id="materials">Materials</h2>
 <ul>
-<li>幻灯片：<a href="../materials/lec01/Lecture1.html" target="_blank">HTML</a> · <a href="../materials/lec01/Lecture1.pdf">PDF</a></li>
-<li>Notebook：<a href="../materials/lec01/Lecture1_Python.ipynb">Lecture1_Python.ipynb</a> · <a href="../materials/lec01/Lecture1_Python.pdf">对应 PDF</a></li>
-<li>补充讲义：Guess and Verify <a href="../materials/lec01/GuessAndVerify.html" target="_blank">HTML</a> · <a href="../materials/lec01/GuessAndVerify.pdf">PDF</a>；Vectorization <a href="../materials/lec01/Vec.html" target="_blank">HTML</a> · <a href="../materials/lec01/Vec.pdf">PDF</a></li>
+<li>Slides: <a href="../materials/lec01/Lecture1.html" target="_blank">HTML</a> · <a href="../materials/lec01/Lecture1.pdf">PDF</a></li>
+<li>Notebook: <a href="../materials/lec01/Lecture1_Python.ipynb">Lecture1_Python.ipynb</a> · <a href="../materials/lec01/Lecture1_Python.pdf">PDF</a></li>
+<li>Supplementary notes: Guess and Verify <a href="../materials/lec01/GuessAndVerify.html" target="_blank">HTML</a> · <a href="../materials/lec01/GuessAndVerify.pdf">PDF</a>; Vectorization <a href="../materials/lec01/Vec.html" target="_blank">HTML</a> · <a href="../materials/lec01/Vec.pdf">PDF</a></li>
 </ul>
 </section>
-<section id="阅读" class="level2">
-<h2 class="anchored" data-anchor-id="阅读">阅读</h2>
+<section id="readings" class="level2">
+<h2 class="anchored" data-anchor-id="readings">Readings</h2>
 <ul>
 <li>Python Software Foundation, <em>Official Python 3 documentation</em>, <a href="https://docs.python.org/3/" class="uri">https://docs.python.org/3/</a>.</li>
 <li>Harris et al.&nbsp;(2020), “Array programming with NumPy,” <em>Nature</em> 585, 357–362.</li>
@@ -305,12 +305,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "已复制");
+      button.setAttribute("title", "Copied!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "已复制");
+        button.setAttribute("data-bs-title", "Copied!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -689,13 +689,24 @@ ul.task-list li input[type="checkbox"] {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-      &nbsp;
-    </div>   
+<p>Peking University · School of Economics · Computational Economics, Spring 2026</p>
+</div>   
     <div class="nav-footer-center">
-<p>北京大学经济学院 · 计算经济学 2026 春 · 主讲 李博 · 助教 高琛</p>
-</div>
-    <div class="nav-footer-right">
       &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://liboecon.com/index_cn.html">
+<p>Lecturer: Bo Li</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://sites.google.com/view/chen-gao/">
+<p>TA: Chen Gao</p>
+</a>
+  </li>  
+</ul>
     </div>
   </div>
 </footer>

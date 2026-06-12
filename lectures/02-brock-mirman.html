@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.27">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Brock–Mirman Growth Model – 计算经济学 2026</title>
+<title>Brock–Mirman Growth Model – Computational Economics 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -55,17 +55,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "没有结果",
-    "search-matching-documents-text": "匹配的文档",
-    "search-copy-link-title": "复制搜索链接",
-    "search-hide-matches-text": "隐藏其它匹配结果",
-    "search-more-match-text": "更多匹配结果",
-    "search-more-matches-text": "更多匹配结果",
-    "search-clear-button-title": "清除",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "取消",
-    "search-submit-button-title": "提交",
-    "search-label": "搜索"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -80,36 +80,36 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">计算经济学 2026</span>
+    <span class="navbar-title">Computational Economics 2026</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="搜索"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="展开或折叠导航栏" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
-<span class="menu-text">首页</span></a>
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../outline.html"> 
-<span class="menu-text">课程大纲</span></a>
+<span class="menu-text">Course Outline</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="../lectures/01-python.html" aria-current="page"> 
-<span class="menu-text">讲义</span></a>
+<span class="menu-text">Lectures</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../homework.html"> 
-<span class="menu-text">作业</span></a>
+<span class="menu-text">Homework</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="https://pkulibo.notion.site/ce2026"> 
-<span class="menu-text">Notion 课程页</span></a>
+<span class="menu-text">Notion course page</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -119,11 +119,11 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/01-python.html">讲义（按授课顺序）</a></li><li class="breadcrumb-item"><a href="../lectures/02-brock-mirman.html">Brock–Mirman Growth Model</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/01-python.html">Lectures (in teaching order)</a></li><li class="breadcrumb-item"><a href="../lectures/02-brock-mirman.html">Brock–Mirman Growth Model</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -137,8 +137,8 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">讲义（按授课顺序）</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+ <span class="menu-text">Lectures (in teaching order)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -208,8 +208,8 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">补充专题</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+ <span class="menu-text">Supplementary topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -237,10 +237,10 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/01-python.html">讲义（按授课顺序）</a></li><li class="breadcrumb-item"><a href="../lectures/02-brock-mirman.html">Brock–Mirman Growth Model</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/01-python.html">Lectures (in teaching order)</a></li><li class="breadcrumb-item"><a href="../lectures/02-brock-mirman.html">Brock–Mirman Growth Model</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Brock–Mirman Growth Model</h1>
-<p class="subtitle lead">第 02 讲 · 2026-03-10 / 03-17</p>
+<p class="subtitle lead">Lecture 2 · 2026-03-10 / 03-17</p>
 </div>
 
 
@@ -257,17 +257,17 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>以 Brock–Mirman (1972) 最优增长模型为例，系统讲解用值函数迭代求解动态规划：状态网格的构造、 收益函数与索引打包、Bellman 算子的收缩性与各类收敛范数，并将数值解与对数效用下的解析解对比。 依次处理确定性、iid 冲击与 Markov 冲击三种情形，后者用 Tauchen 方法将 AR(1) 生产率离散为 马尔可夫链，最后模拟模型动态。另附两期模型补充讲义，从欧拉方程角度作为热身。</p>
-<section id="材料" class="level2">
-<h2 class="anchored" data-anchor-id="材料">材料</h2>
+<p>Using the Brock–Mirman (1972) optimal growth model as the running example, we develop value function iteration as a method for solving dynamic programming problems: constructing the state grid, building the return function with index packing, and verifying the contraction property of the Bellman operator together with the various convergence norms, before benchmarking the numerical solution against the closed-form solution under log utility. We treat the deterministic, iid-shock, and Markov-shock cases in turn; in the last, the Tauchen method discretizes the AR(1) productivity process into a Markov chain, and we close by simulating the model dynamics. A supplementary handout on the two-period model serves as an Euler-equation warm-up.</p>
+<section id="materials" class="level2">
+<h2 class="anchored" data-anchor-id="materials">Materials</h2>
 <ul>
-<li>幻灯片：<a href="../materials/lec02/Lecture2.html" target="_blank">HTML</a> · <a href="../materials/lec02/Lecture2.pdf">PDF</a></li>
-<li>Notebook：<a href="../materials/lec02/Lecture2.ipynb">Lecture2.ipynb</a></li>
-<li>补充讲义：A Two-Period Model <a href="../materials/lec02/2period.html" target="_blank">HTML</a> · <a href="../materials/lec02/2period.pdf">PDF</a></li>
+<li>Slides: <a href="../materials/lec02/Lecture2.html" target="_blank">HTML</a> · <a href="../materials/lec02/Lecture2.pdf">PDF</a></li>
+<li>Notebook: <a href="../materials/lec02/Lecture2.ipynb">Lecture2.ipynb</a></li>
+<li>Supplementary notes: A Two-Period Model <a href="../materials/lec02/2period.html" target="_blank">HTML</a> · <a href="../materials/lec02/2period.pdf">PDF</a></li>
 </ul>
 </section>
-<section id="阅读" class="level2">
-<h2 class="anchored" data-anchor-id="阅读">阅读</h2>
+<section id="readings" class="level2">
+<h2 class="anchored" data-anchor-id="readings">Readings</h2>
 <ul>
 <li>Brock &amp; Mirman (1972), “Optimal Economic Growth and Uncertainty: The Discounted Case,” <em>JET</em> 4(3), 479–513.</li>
 </ul>
@@ -301,12 +301,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "已复制");
+      button.setAttribute("title", "Copied!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "已复制");
+        button.setAttribute("data-bs-title", "Copied!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -685,13 +685,24 @@ ul.task-list li input[type="checkbox"] {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-      &nbsp;
-    </div>   
+<p>Peking University · School of Economics · Computational Economics, Spring 2026</p>
+</div>   
     <div class="nav-footer-center">
-<p>北京大学经济学院 · 计算经济学 2026 春 · 主讲 李博 · 助教 高琛</p>
-</div>
-    <div class="nav-footer-right">
       &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://liboecon.com/index_cn.html">
+<p>Lecturer: Bo Li</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://sites.google.com/view/chen-gao/">
+<p>TA: Chen Gao</p>
+</a>
+  </li>  
+</ul>
     </div>
   </div>
 </footer>
